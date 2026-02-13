@@ -210,3 +210,58 @@ console.log(name);
 console.log(age);
 console.log(country);
 console.log(gender); 
+
+
+//======================================================
+//                   Tasks 3.2
+//======================================================
+
+
+
+// Function to check if numbers are even or odd
+function checkEvenOdd(...numbers) {
+    // Loop through each number
+    for (let number of numbers) {
+        if (number % 2 === 0) {
+            console.log(`${number} is even`);
+        } else {
+            console.log(`${number} is odd`);
+        }
+    }
+}
+
+// Call the function with different numbers
+checkEvenOdd(2, 3, 4, 5, 6);   // Output: 2 is even, 3 is odd, 4 is even, 5 is odd, 6 is even
+checkEvenOdd(10, 15);          // Output: 10 is even, 15 is odd
+checkEvenOdd(7, 11, 13);       // Output: 7 is odd, 11 is odd, 13 is odd
+
+
+
+
+// Creating an object with a nested object
+const original = {
+    name: "Alice",
+    age: 25,
+    address: {
+        street: "123 Main St",
+        city: "New York"
+    }
+};
+
+// Shallow copy using the spread operator
+const shallowCopy = { ...original };
+
+// Direct reference assignment
+const directReference = original;
+
+// Modifying the shallow copy and reference
+shallowCopy.name = "Bob";
+shallowCopy.address.city = "Los Angeles"; // Modify nested object
+
+directReference.name = "Charlie";
+directReference.address.street = "456 Elm St"; // Modify nested object
+
+// Log the original, shallow copy, and direct reference
+console.log("Original:", original);
+console.log("Shallow Copy:", shallowCopy);
+console.log("Direct Reference:", directReference);
