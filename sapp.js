@@ -198,18 +198,18 @@
 //                   Tasks 3.1
 //======================================================
 
-const user = {
-    name: "Sir Talal Ahmed",
-    age: 24,
-    country: "Riyadh, Saudi Arabia"
-};
+// const user = {
+//     name: "Sir Talal Ahmed",
+//     age: 24,
+//     country: "Riyadh, Saudi Arabia"
+// };
 
-const { name, age, country = "Unknown", gender = "Not Entered" } = user;
+// const { name, age, country = "Unknown", gender = "Not Entered" } = user;
 
-console.log(name);
-console.log(age);
-console.log(country);
-console.log(gender); 
+// console.log(name);
+// console.log(age);
+// console.log(country);
+// console.log(gender); 
 
 
 //======================================================
@@ -240,28 +240,25 @@ checkEvenOdd(7, 11, 13);       // Output: 7 is odd, 11 is odd, 13 is odd
 
 // Creating an object with a nested object
 const original = {
-    name: "Alice",
-    age: 25,
+    name: "Zaid Khan",
+    age: 17, // Almost 
     address: {
-        street: "123 Main St",
-        city: "New York"
+        street: "19/C",
+        city: "Karachi"
     }
 };
 
-// Shallow copy using the spread operator
 const shallowCopy = { ...original };
 
-// Direct reference assignment
 const directReference = original;
 
-// Modifying the shallow copy and reference
-shallowCopy.name = "Bob";
-shallowCopy.address.city = "Los Angeles"; // Modify nested object
+shallowCopy.name = "Salman";
+shallowCopy.address.city = "Peshwar"; 
 
-directReference.name = "Charlie";
-directReference.address.street = "456 Elm St"; // Modify nested object
+directReference.name = "Moiz";
+directReference.address.street = "14 / B";
 
-// Log the original, shallow copy, and direct reference
+
 console.log("Original:", original);
 console.log("Shallow Copy:", shallowCopy);
 console.log("Direct Reference:", directReference);
