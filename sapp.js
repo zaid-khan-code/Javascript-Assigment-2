@@ -278,7 +278,6 @@ console.log("Direct Reference:", directReference);
 
 
 
-// Sample dataset of products
 const products = [
     { name: "Shirt", category: "Clothing", price: 20, stock: 10 },
     { name: "Shoes", category: "Clothing", price: 50, stock: 0 }, // out of stock
@@ -287,38 +286,31 @@ const products = [
     { name: "Hat", category: "Clothing", price: 15, stock: 20 }
 ];
 
-// Closure to filter products by category
 const filterByCategory = (category) => {
     return (product) => product.category === category;
 };
 
-// Function to process data
 function processProducts(data) {
     console.log("=== Starting Product Data Processing ===");
 
-    // Step 1: Filter out products that are out of stock
     const inStockProducts = data.filter(({ stock }) => stock > 0);
     console.log("In-stock products:", inStockProducts);
 
-    // Step 2: Apply a 10% discount to the in-stock products
     const discountedProducts = inStockProducts.map(({ name, price }) => {
-        return { name, price: price * 0.9 }; // Applying a 10% discount
+        return { name, price: price * 0.9 }; 
     });
     console.log("Discounted products:", discountedProducts);
 
-    // Step 3: Calculate the total price of discounted products
     const totalPrice = discountedProducts.reduce((acc, { price }) => acc + price, 0);
     console.log("Total price after discount:", totalPrice);
 
     return totalPrice;
 }
 
-// Call the function to process products
 const total = processProducts(products);
 console.log("Total price of all discounted products:", total);
 
-// Experiment Logs (log behaviors during execution)
 console.log("=== Experiment Logs ===");
-console.log("Behavior 1: Using destructuring in `map` makes it easy to access properties directly.");
+console.log("Behavior 1: Using destructuring in `map` makes it easy to access properties directly so we don't have to use product.name and so so ");
 console.log("Behavior 2: The `reduce` method calculates the total even when there are only a few products.");
 console.log("Behavior 3: Filtering products by stock works well even with mixed stock values (0 and >0).");
