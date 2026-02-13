@@ -238,6 +238,12 @@ checkEvenOdd(7, 11, 13);       // Output: 7 is odd, 11 is odd, 13 is odd
 
 
 
+
+//======================================================
+//                   Tasks 3.3
+//======================================================
+
+
 // Creating an object with a nested object
 const original = {
     name: "Zaid Khan",
@@ -262,3 +268,57 @@ directReference.address.street = "14 / B";
 console.log("Original:", original);
 console.log("Shallow Copy:", shallowCopy);
 console.log("Direct Reference:", directReference);
+
+
+
+
+//======================================================
+//                      Final Project
+//======================================================
+
+
+
+// Sample dataset of products
+const products = [
+    { name: "Shirt", category: "Clothing", price: 20, stock: 10 },
+    { name: "Shoes", category: "Clothing", price: 50, stock: 0 }, // out of stock
+    { name: "Laptop", category: "Electronics", price: 500, stock: 5 },
+    { name: "Phone", category: "Electronics", price: 300, stock: 3 },
+    { name: "Hat", category: "Clothing", price: 15, stock: 20 }
+];
+
+// Closure to filter products by category
+const filterByCategory = (category) => {
+    return (product) => product.category === category;
+};
+
+// Function to process data
+function processProducts(data) {
+    console.log("=== Starting Product Data Processing ===");
+
+    // Step 1: Filter out products that are out of stock
+    const inStockProducts = data.filter(({ stock }) => stock > 0);
+    console.log("In-stock products:", inStockProducts);
+
+    // Step 2: Apply a 10% discount to the in-stock products
+    const discountedProducts = inStockProducts.map(({ name, price }) => {
+        return { name, price: price * 0.9 }; // Applying a 10% discount
+    });
+    console.log("Discounted products:", discountedProducts);
+
+    // Step 3: Calculate the total price of discounted products
+    const totalPrice = discountedProducts.reduce((acc, { price }) => acc + price, 0);
+    console.log("Total price after discount:", totalPrice);
+
+    return totalPrice;
+}
+
+// Call the function to process products
+const total = processProducts(products);
+console.log("Total price of all discounted products:", total);
+
+// Experiment Logs (log behaviors during execution)
+console.log("=== Experiment Logs ===");
+console.log("Behavior 1: Using destructuring in `map` makes it easy to access properties directly.");
+console.log("Behavior 2: The `reduce` method calculates the total even when there are only a few products.");
+console.log("Behavior 3: Filtering products by stock works well even with mixed stock values (0 and >0).");
